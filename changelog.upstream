@@ -1,3 +1,36 @@
+commit 22a8cfb1210b0080776756d54fa48e1c119217c2
+Merge: 4e60b15 e012eca
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun May 10 12:43:24 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit e012ecafeb4f74736698ac22b68861af47d44898
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Thu Apr 30 22:17:10 2026 -0400
+
+    Add coding agent guidance
+
+    Based on the below commit:
+
+    commit 38f8354093687d454950e7abefffe999cdbd9ab1
+    Author: Claude <noreply@anthropic.com>
+    Date:   Mon Apr 27 21:10:25 2026 +0000
+
+        Add AGENTS.md with security design decisions and audit history
+
+        Captures reviewer conclusions from PR #1, architecture invariants,
+        and resolved vulnerabilities so future contributors do not re-propose
+        changes that have already been evaluated.
+
+        https://claude.ai/code/session_01W6kXMiJ5ULwNV9cega66Dx
+
+commit 4e60b15480c71c3413c384cc9396d010d18634bf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Apr 8 17:49:53 2026 +0000
+
+    bumped changelog version
+
 commit 160dd48d669c1dbc414a736498b874f5ae4e53b4
 Merge: c60c03b 763ba07
 Author: Patrick Schleizer <adrelanos@whonix.org>
@@ -78,7 +111,7 @@ Author: Aaron Rainbolt <arraybolt3@gmail.com>
 Date:   Wed Feb 25 23:46:16 2026 -0500
 
     Fix improper permissions on test suite fake privleapd directories
-    
+
     This unbreaks the test suite in a Kicksecure 18 AppVM under Qubes R4.3.
     (It's probably needed to unbreak the suite on any Kicksecure 18 system
     because of the default umask we use.)
