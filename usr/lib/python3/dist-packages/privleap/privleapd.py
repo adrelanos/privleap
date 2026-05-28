@@ -1664,9 +1664,7 @@ def main_loop() -> NoReturn:
     """
     Main processing loop of privleapd. This loop will watch for and accept
     connections as needed, spawning threads to handle each individual comm
-    connection. Control connections are handled in the main thread since they
-    aren't a DoS risk, and running two control sessions at once could be
-    dangerous.
+    connection.
 
     May only be called by the main thread.
     """
