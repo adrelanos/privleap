@@ -97,6 +97,10 @@ except Exception:
     sys.exit(255)
 pam_env_list: list[str] = pam_obj.getenvlist()
 
+## If in the future privleap ever uses socket activation, we should explicitly
+## close socket-activation-related file descriptors here, and strip systemd's
+## LISTEN_* environment variables. It is unlikely this will ever be necessary
+## though.
 action_env: dict[str, str] = os.environ.copy()
 action_env["HOME"] = target_user_info.pw_dir
 action_env["LOGNAME"] = target_user_info.pw_name
