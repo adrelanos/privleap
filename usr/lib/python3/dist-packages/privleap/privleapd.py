@@ -1189,7 +1189,9 @@ def ensure_running_as_root() -> None:
 def verify_not_running_twice() -> None:
     """
     Ensures that two simultaneous instances of privleapd are not running at the
-    same time.
+    same time. Note that this only prevents likely mistakes, this function can
+    be fooled by launching two privleapd processes at the same time (as
+    opposed to starting a new one when one is already fully running).
 
     May only be called by the main thread.
     """
@@ -1199,11 +1201,11 @@ def verify_not_running_twice() -> None:
 
     with open(PrivleapdGlobal.pid_file_path, "r", encoding="utf-8") as pid_file:
         old_pid_str: str = pid_file.read().strip()
-        old_pid_validate_regex: re.Pattern[str] = re.compile(r"\d+\Z")
-        if not old_pid_validate_regex.match(old_pid_str):
+        try:
+            old_pid: int = int(old_pid_str)
+        except Exception:
             return
 
-        old_pid: int = int(old_pid_str)
         # Send signal 0 to check for existence, this will raise an OSError if
         # the process doesn't exist
         try:
@@ -1217,7 +1219,7 @@ def verify_not_running_twice() -> None:
             return
         except Exception as e:
             logging.critical(
-                "Could not check for simultaneously running privleapd "
+                "Could not check for a simultaneously running privleapd "
                 "process!",
                 exc_info=e,
             )
@@ -1617,9 +1619,9 @@ def open_persistent_comm_sockets(in_control_thread: bool) -> None:
 def prep_sock_notify_pipe() -> None:
     """
     Prepares a pipe fd pair used to inform the main thread when a new socket
-    is about to be added and when it is done being added.
+    is about to be added or removed.
 
-    May only be called by the mai nthread.
+    May only be called by the main thread.
     """
 
     PrivleapdGlobal.ctm_read_fd, PrivleapdGlobal.ctm_write_fd = os.pipe()
@@ -1797,15 +1799,15 @@ def main() -> NoReturn:
     populate_state_dir()
     open_control_socket()
     open_persistent_comm_sockets(in_control_thread=False)
+    prep_sock_notify_pipe()
+    control_handler_thread: Thread = Thread(
+        target=control_handler_loop, daemon=True
+    )
+    control_handler_thread.start()
     PrivleapdGlobal.sdnotify_object.notify("READY=1")
     PrivleapdGlobal.sdnotify_object.notify("STATUS=Fully started")
     if PrivleapdGlobal.test_mode:
         Path("/tmp/privleapd-ready-for-test").touch()
-    control_handler_thread: Thread = Thread(
-        target=control_handler_loop, daemon=True
-    )
-    prep_sock_notify_pipe()
-    control_handler_thread.start()
     main_loop()
 
 
