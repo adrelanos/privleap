@@ -1,3 +1,30 @@
+commit c6134be4d4aa4cc9510c6daf53a89ddf1b8fdc76
+Merge: bf035c1 3aa0255
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 7 06:30:37 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit 3aa0255f95d8182199e8ae0d258fa427cbef7e2a
+Author: claude (dev42 08e1f373-4824-43b0-b4d4-e48187e4d900) <noreply@anthropic.com>
+Date:   Fri Jul 3 15:29:57 2026 -0400
+
+    AGENTS.md: link to the comprehensive privleap test suite in dist-ai
+
+    The parser/authorizer fuzzers (incl. Atheris + session-state) and
+    live-daemon e2e suites are too high-volume for human review and live in
+    the AI-maintained dist-ai repo. Add a minimal pointer + the PRIVLEAP_REPO
+    invocation.
+
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_014Pag3UZHFWciJjKjnUwPWS
+
+commit bf035c1cd66dbe2430d15f1eea3ae34249ec844d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jun 29 15:23:51 2026 +0000
+
+    bumped changelog version
+
 commit f24061f45944a36b41f635b8c85b9e8eeb2fd5fa
 Merge: c53750f b51c717
 Author: Patrick Schleizer <adrelanos@whonix.org>
