@@ -1,3 +1,41 @@
+commit 99675480aed07111f54d004b2922c2a748635b47
+Merge: 0800cc8 9931031
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 8 14:04:39 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit 99310316dc796737e42372ee4e7893e953b5e185
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Tue Jul 7 08:45:29 2026 -0400
+
+    CI: add dist-ai-tests apt deps (.github/dm-consumer.yml)
+
+    Declare the apt packages this package's dist-ai suites need at CI runtime,
+    read by reusable-dist-ai-tests from .github/dm-consumer.yml.
+
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+commit 1e117d008386c90d4912eba21eac755d4cb5f289
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Tue Jul 7 07:35:29 2026 -0400
+
+    CI: add dist-ai tests workflow (consumer wrapper)
+
+    Install the byte-identical consumer-dist-ai-tests.yml wrapper so this
+    package's comprehensive dist-ai suite (privleap-tests, maintained in
+    org-ai-assisted/dist-ai, too high-volume for in-tree human review) runs
+    on each PR and master push, via the reusable in developer-meta-files.
+    See AGENTS.md "Tests". First pilot of the dist-ai CI wiring.
+
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+commit 0800cc8c6cdf137e69473cf43df99526b6e0e947
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 7 10:40:33 2026 +0000
+
+    bumped changelog version
+
 commit c6134be4d4aa4cc9510c6daf53a89ddf1b8fdc76
 Merge: bf035c1 3aa0255
 Author: Patrick Schleizer <adrelanos@whonix.org>
