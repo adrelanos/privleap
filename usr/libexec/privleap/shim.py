@@ -102,6 +102,10 @@ pam_env_list: list[str] = pam_obj.getenvlist()
 ## LISTEN_* environment variables. It is unlikely this will ever be necessary
 ## though.
 action_env: dict[str, str] = os.environ.copy()
+## WATCHDOG_PID is the PID of privleapd, which should be unknown to the
+## launched process if hidepid is enabled.
+action_env.pop("WATCHDOG_PID", None)
+
 action_env["HOME"] = target_user_info.pw_dir
 action_env["LOGNAME"] = target_user_info.pw_name
 action_env["SHELL"] = "/usr/bin/bash"
