@@ -1,3 +1,22 @@
+commit c8ba8208d9a83c4b84ae6220cf641ad8008422d9
+Merge: 8cd0c23 faa2400
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 21 05:09:29 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit faa2400072e88ba1798bd98ed63a1a9b835b4bf1
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Tue Jul 14 00:48:19 2026 -0400
+
+    Scrub WATCHDOG_PID from the environment when launching a process
+
+commit 8cd0c23efac5cd9ab8610235a6d74e6d8f906594
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 8 18:12:38 2026 +0000
+
+    bumped changelog version
+
 commit 99675480aed07111f54d004b2922c2a748635b47
 Merge: 0800cc8 9931031
 Author: Patrick Schleizer <adrelanos@whonix.org>
